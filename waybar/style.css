@@ -1,0 +1,52 @@
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: FontAwesome, JetBrainsMono Nerd Font;
+    border-radius: 0;
+    font-size: 13px;
+    border: none;
+    min-height: 0;
+}
+
+
+window#waybar {
+    background: rgba(45, 53, 59, 0.9);  
+}
+  #workspaces button {
+    background: transparent;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
+    color: #859289;
+  }
+  #workspaces button.focused {
+  color: #D3C6AA;
+
+}
+  #mode {
+  color: #D3C6AA;
+}
+  #window {
+  color: #D3C6AA;
+}
+  #clock {
+  color: #D3C6AA;
+  padding: 0 7px;
+} 
+  #battery {
+  color: #D3C6AA;
+  padding: 0 7px;
+}
+  #pulseaudio {
+  color: #D3C6AA;
+  padding: 0 7px;
+}
+  #memory {
+  color: #D3C6AA;
+  padding: 0 7px;
+}
+  #cpu {
+  color: #D3C6AA;
+  padding: 0 7px;
+}
+   
