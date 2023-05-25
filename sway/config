@@ -14,6 +14,21 @@ include /etc/sway/config.d/*
 
 
 
+##########################
+# Set Wallpaper / Colors #
+##########################
+include "$HOME/.cache/wal/colors-sway"
+output eDP-1 background $wallpaper fill
+client.focused $color3 $background $foreground $color7 $background
+
+
+########
+# Font #
+########
+font pango:FiraCode Nerd Font 9
+
+
+
 ###############
 # Set Mod Key #
 ###############
@@ -34,28 +49,28 @@ set $right l
 ################
 # Set Terminal #
 ################
-set $term foot
+set $term xfce4-terminal
 
 
 
 ############
 # Set Rofi #
 ############
-set $menu /home/kuku/.config/rofi/launchers/type-2/launcher.sh | xargs swaymsg exec --
+set $menu rofi -config /home/kuku/.config/rofi.kuku/colors-rofi-dark.rasi -show drun | xargs swaymsg exec --
 
 
 
 #################
 # Window Corner #
 #################
-corner_radius 10
+corner_radius 8
 
 
 
 ###############
 # Window Blur #
 ###############
-blur on
+blur off
 blur_xray on
 blur_passes 2
 blur_radius 2
@@ -75,7 +90,7 @@ shadow_color #0000007F
 ###########################
 # Inactive Window Dimming #
 ###########################
-default_dim_inactive 0.15
+default_dim_inactive 0.2
 dim_inactive_colors.unfocused #000000FF
 dim_inactive_colors.urgent #900000FF
 
@@ -84,8 +99,8 @@ dim_inactive_colors.urgent #900000FF
 ########
 # Gaps #
 ########
-gaps inner 5
-gaps outer 10
+gaps inner 15
+gaps outer 0
 smart_gaps off
 
 
@@ -93,19 +108,7 @@ smart_gaps off
 ###################
 # Boarder / Color #
 ###################
-for_window [class="^.*"] border pixel 0 
-
-########################################################################
-# class                 border  backgr. text    indicator child_border #
-########################################################################
-client.focused          #272E33 #272E33 #ffffff #D3C6AA   #272E33
-client.focused_inactive #272E33 #272E33 #ffffff #D3C6AA   #272E33
-client.unfocused        #272E33 #272E33 #888888 #D3C6AA   #272E33
-client.urgent           #272E33 #900000 #ffffff #900000   #900000
-client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
-
-client.background       #ffffff
-
+for_window [class="^.*"] border pixel 0
 
 
 
@@ -114,12 +117,6 @@ client.background       #ffffff
 ##########################################
 scratchpad_minimize enable
 
-
-
-#################
-# Set Wallpaper #
-#################
-exec_always "swaybg -i /home/kuku/Pictures/wallpapers/fog_forest_1.png"
 
 
 ######################
@@ -320,11 +317,15 @@ bindsym $mod+r mode "resize"
 
 
 
-# Bind Restart Waybar
-bindsym $mod+l exec killall waybar && waybar
-
-
 ##########
 # Waybar #
 ##########
-exec_always "waybar && killall waybar && waybar"
+exec_always ~/.config/waybar/waybar.sh
+
+
+
+##############
+# Autotiling #
+##############
+exec_always autotiling 
+
